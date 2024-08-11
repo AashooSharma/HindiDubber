@@ -11,6 +11,10 @@ on:
         description: 'Path to the output video file'
         required: true
         default: 'output/output_hindi_dubbed_video.mp4'
+      RELEASE_TAG:
+        description: 'Tag for the new release'
+        required: true
+        default: 'v1.0.0'
 
 jobs:
   build:
@@ -41,4 +45,22 @@ jobs:
           OUTPUT_VIDEO_PATH: ${{ github.event.inputs.OUTPUT_VIDEO_PATH }}
         run: |
           python main.py
-          
+
+      - name: Create Release
+        id: create_release
+        uses: gh-actions/create-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.RELEASE_TAG }}
+          release_name: Release ${{ github.event.inputs.RELEASE_TAG }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload video to Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.event.inputs.OUTPUT_VIDEO_PATH }}
+          asset_name: output_hindi_dubbed_video.mp4
+          asset_content_type: video/mp4
