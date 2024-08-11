@@ -32,7 +32,7 @@ jobs:
           YOUTUBE_URL: ${{ github.event.inputs.youtube_url }}
         run: |
           echo "Running Hindi Dubber..."
-          python main.py
+          python main2.py
 
       - name: Upload output
         uses: actions/upload-artifact@v3
