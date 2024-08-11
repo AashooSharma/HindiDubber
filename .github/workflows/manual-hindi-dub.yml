@@ -1,0 +1,42 @@
+name: Hindi Dubber Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      youtube_url:
+        description: 'YouTube Video URL'
+        required: true
+        type: string
+
+jobs:
+  hindi-dubber:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Specify Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytube python-dotenv
+
+      - name: Run Hindi Dubber script
+        env:
+          YOUTUBE_URL: ${{ github.event.inputs.youtube_url }}
+        run: |
+          echo "Running Hindi Dubber..."
+          python main.py
+
+      - name: Upload output
+        uses: actions/upload-artifact@v3
+        with:
+          name: hindi-dubbed-video
+          path: output/output_hindi_dubbed_video.mp4
+          
