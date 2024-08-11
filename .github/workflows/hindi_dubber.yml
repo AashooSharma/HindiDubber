@@ -48,7 +48,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: gh-actions/create-release@v1
+        uses: actions/create-release@v1
         with:
           tag_name: ${{ github.event.inputs.RELEASE_TAG }}
           release_name: Release ${{ github.event.inputs.RELEASE_TAG }}
@@ -64,3 +64,5 @@ jobs:
           asset_path: ${{ github.event.inputs.OUTPUT_VIDEO_PATH }}
           asset_name: output_hindi_dubbed_video.mp4
           asset_content_type: video/mp4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
