@@ -5,23 +5,15 @@ from googletrans import Translator
 from gtts import gTTS
 import os
 from dotenv import load_dotenv
-from pytube import YouTube
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Paths for input, output, and temp files
+INPUT_VIDEO_PATH = "input/input_video.mp4"
 EXTRACTED_AUDIO_PATH = "temp/extracted_audio.wav"
 HINDI_AUDIO_PATH = "temp/hindi_audio.mp3"
 OUTPUT_VIDEO_PATH = "output/output_hindi_dubbed_video.mp4"
-
-def download_youtube_video(youtube_url, download_path="input/input_video.mp4"):
-    print("Downloading video from YouTube...")
-    yt = YouTube(youtube_url)
-    stream = yt.streams.filter(file_extension="mp4", res="360p").first()  # Choose the desired quality
-    stream.download(filename=download_path)
-    print(f"Downloaded video to {download_path}")
-    return download_path
 
 def extract_audio(video_path, output_audio_path):
     print("Extracting audio from video...")
@@ -60,32 +52,26 @@ def insert_audio_in_video(video_path, audio_path, output_video_path):
     new_video = video.set_audio(audio)
     new_video.write_videofile(output_video_path, audio_codec='aac')
 
-def dub_video_to_hindi_from_youtube(youtube_url, output_video_path):
-    # Step 1: Download Video from YouTube
-    video_path = download_youtube_video(youtube_url)
-    
-    # Step 2: Extract Audio from Video
+def dub_video_to_hindi_from_uploaded(video_path, output_video_path):
+    # Step 1: Extract Audio from Video
     extract_audio(video_path, EXTRACTED_AUDIO_PATH)
     
-    # Step 3: Transcribe Audio to Text
+    # Step 2: Transcribe Audio to Text
     text = transcribe_audio_to_text(EXTRACTED_AUDIO_PATH)
     print(f"Transcribed Text: {text}")
     
-    # Step 4: Translate Text to Hindi
+    # Step 3: Translate Text to Hindi
     translated_text = translate_text_to_hindi(text)
     print(f"Translated Text: {translated_text}")
     
-    # Step 5: Convert Translated Text to Hindi Speech
+    # Step 4: Convert Translated Text to Hindi Speech
     text_to_speech(translated_text, HINDI_AUDIO_PATH)
     
-    # Step 6: Insert Hindi Dubbed Audio in Video
+    # Step 5: Insert Hindi Dubbed Audio in Video
     insert_audio_in_video(video_path, HINDI_AUDIO_PATH, output_video_path)
     
     print(f"Hindi dubbed video saved to {output_video_path}")
 
 if __name__ == "__main__":
-    youtube_url = os.getenv("YOUTUBE_URL")
-    if not youtube_url:
-        youtube_url = input("Enter the YouTube video URL: ")
-    dub_video_to_hindi_from_youtube(youtube_url, OUTPUT_VIDEO_PATH)
-  
+    video_path = INPUT_VIDEO_PATH
+    dub_video_to_hindi_from_uploaded(video_path, OUTPUT_VIDEO_PATH)
