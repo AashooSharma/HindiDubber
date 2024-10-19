@@ -1,4 +1,4 @@
-# ![Hindi Dubber Logo](logo.png) Hindi Dubber
+# Hindi Dubber
 
 Hindi Dubber is a Python-based tool that converts English videos into Hindi dubbed versions effortlessly. You can input videos directly or via YouTube URLs, and the tool processes the video to produce a Hindi-dubbed version, ensuring a seamless workflow experience. Additionally, the project supports automation via a GitHub Actions manual workflow.
 
