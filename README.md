@@ -1,8 +1,10 @@
 # Hindi Dubber
 
+![Hindi Dubber Logo](logo.png)
+
+
 **Hindi Dubber** is a powerful Python tool that converts English videos into Hindi-dubbed versions effortlessly. With options to input videos directly or via YouTube URLs, the tool processes and produces a Hindi-dubbed output efficiently. It supports automation via a GitHub Actions manual workflow, ensuring a seamless experience for users.
 
-[![Watch the Tutorial](yt.png)](https://www.youtube.com/watch?v=VIDEO_ID)  
 [![License](https://img.shields.io/github/license/aashooSharma/hindi-dubber)](LICENSE)  
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-support-yellow)](https://buymeacoffee.com/aashoo8290b)  
 [![GitHub Budget](https://img.shields.io/badge/GitHub-Budget-blue)](https://buymeacoffee.com/aashoo8290b)
@@ -11,7 +13,6 @@
 
 ## Table of Contents
 
-- [Project Logo](#project-logo)
 - [Features](#features)
 - [Usage](#usage)
 - [Installation & Setup](#installation--setup)
@@ -19,13 +20,6 @@
 - [Project Tool Tutorial](#project-tool-tutorial)
 - [Contribution & Support](#contribution--support)
 - [Contact Us](#contact-us)
-
----
-
-## Project Logo
-![Hindi Dubber Logo](logo.png)
-
-The logo represents the essence of Hindi Dubber, reflecting its purpose of converting English video content into Hindi audio using Python automation.
 
 ---
 
@@ -113,6 +107,8 @@ Hindi Dubber can be used in two primary ways:
 ---
 
 ## [Project Tool Tutorial](https://www.youtube.com/watch?v=your-video-link)
+
+[![Watch the Tutorial](yt.png)](https://www.youtube.com/watch?v=VIDEO_ID)  
 
 Check out our comprehensive YouTube tutorial for a visual guide on setting up and using Hindi Dubber.
 
