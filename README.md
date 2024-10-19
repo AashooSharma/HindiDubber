@@ -29,7 +29,7 @@ The logo represents the essence of Hindi Dubber, reflecting its purpose of conve
 
 ---
 
-## Features
+## 📋 Features
 
 - 🎥 **Automatic Audio Extraction**: Extracts audio seamlessly from video files.
 - 🗣️ **Speech Recognition**: Accurately transcribes English audio to text.
@@ -40,7 +40,7 @@ The logo represents the essence of Hindi Dubber, reflecting its purpose of conve
 
 ---
 
-## Usage
+## 💡 Usage
 
 Hindi Dubber can be used in two primary ways:
 1. **Local Execution**: Directly run the tool from your local environment.
@@ -48,7 +48,7 @@ Hindi Dubber can be used in two primary ways:
 
 ---
 
-## Installation & Setup
+## 🔧 Installation & Setup
 
 ### Prerequisites
 
@@ -87,7 +87,7 @@ Hindi Dubber can be used in two primary ways:
 
 ---
 
-## Deployment
+## 🚀 Deployment
 
 ### Local Execution
 
@@ -118,7 +118,7 @@ Check out our comprehensive YouTube tutorial for a visual guide on setting up an
 
 ---
 
-## Contribution & Support
+## 🤝 Contribution & Support
 
 We welcome contributions! To contribute:
 
@@ -137,7 +137,7 @@ If you find this tool useful, consider supporting us:
 
 ---
 
-## Contact Us
+## 📱 Contact Us
 
 Have questions or need further assistance? Feel free to reach out:
 
